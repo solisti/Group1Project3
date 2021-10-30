@@ -1,9 +1,5 @@
-try:
-    from PIL import Image
-except ImportError:
-    import Image
 import pytesseract
-import translate
+from PIL import Image
 from translate import Translator
 
 def ocr_core(filename):
