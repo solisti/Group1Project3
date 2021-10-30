@@ -18,6 +18,10 @@ def writefile(image_path, strstr):
 #takes text extracted from txt file and translates them, outputs translated version into a txt file called "translated.txt"
 def translate_text(image_path):
     translator = Translator(to_lang="en", from_lang="zh")
+    width = 1000
+    height = 1000
+    im  = Image.new( mode = "RGB", size = (width, height), color = (255, 255, 255) )
+    translator = Translator(to_lang="en", from_lang="zh")
 
     with open(image_path + '/script.txt', encoding='utf-8') as f:
         contents = f.readlines()
@@ -25,6 +29,12 @@ def translate_text(image_path):
     with open(image_path + '/translated.txt', 'a') as n:
         for line in contents:
             n.writelines(translator.translate(line) + "\n")
+            draw = ImageDraw.Draw(im)
+            font = ImageFont.truetype("arial.ttf", 15)
+            for i in range(9):
+                draw.text((10, i*14), translator.translate(line), fill=(0,0,0,0), font=font)
+        im.save("Capture.JPG");
+        im.show();
 
 path = input('file path: ')
 nums = input('# of files: ')
