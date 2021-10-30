@@ -1,5 +1,5 @@
 import pytesseract
-from PIL import Image
+from PIL import Image, ImageFont, ImageDraw
 from translate import Translator
 
 def ocr_core(filename):
