@@ -11,7 +11,7 @@ This program is run as a script. To start, a file containing an image will be ne
 ### Dependencies
 * Python 3.x
 * tesseract
-* translate
+* pillow
 
 ### installing
  * Clone this repository
@@ -19,7 +19,7 @@ This program is run as a script. To start, a file containing an image will be ne
 ### Executing the program
 Before executing this program, you will need to install the following libraries using the following commands
 -pip tesseract
--pip translate
+-pip pillow
 
 ## Authors
 * Alexander Archer
