@@ -3,6 +3,13 @@ import pytesseract
 from translate import Translator
 from PIL import ImageFont, ImageDraw, Image
 
+"""
+Python 3 script file for obtaining an image file with text from a user
+and using the tesseract OCR engine to generate a .txt file from the image.
+The .txt file is then passed to a translator that translates the text to
+English and outputs the translation as both a .txt file and a JPG image file.
+"""
+
 # The next line may not be needed. It is needed if tesseract is not in your PATH
 # (Check path for tesseract and modify the line below if needed)
 pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
