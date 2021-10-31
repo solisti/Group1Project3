@@ -23,11 +23,11 @@ def writefile(image_path, strstr):
 
 # takes text extracted from txt file and translates them, outputs translated
 # version into a txt file called "translated.txt" and outputs an image
-# file called Capture.JPG.
+# file called Capture.JPG
 def translate_text(image_path):
     translator = Translator(to_lang="en", from_lang="zh")
-    width = 1000
-    height = 1000
+    width = 500
+    height = 500
     im = Image.new(mode="RGB", size=(width, height), color=(255, 255, 255))
 
     with open(image_path + '/script.txt', encoding='utf-8') as f:
@@ -56,7 +56,9 @@ nums = input('# of files: ')
 # translator = Translator(provider='<the name of the provider, eg. microsoft or deepl>', to_lang=to_lang, secret_access_key=secret)
 
 # I signed up for DeepL account and got this access key but is seems not to be working because mymemory is still used
-# secret = '4ab5c119-0001-6b9d-8f3a-a7963bbabbe3'
+# Code still works if not commented out but deepl is not used. Leaving code here for reference
+# (in case someone can fix it) but we should delete it if we can't fix it.
+# secret = '4ab5c119-0001-6b9d-8f3a-a7963bbabbe3:fx'
 # translator = Translator(provider='deepl', to_lang="en", secret_access_key=secret)
 
 
