@@ -56,8 +56,8 @@ def translate_text(image_path, imagename, language):
     # Grab the size of the input image
     # Later we can choose a font size depending on input image size
     width, height = oldimg.size
-    width *= 2
-    height *= 2
+    width *= 3
+    height *= 3
 
     # Grab a color sample, to reproduce the background in the output image
     # The code obtains an rgb tuple at position (x,y)
@@ -73,7 +73,7 @@ def translate_text(image_path, imagename, language):
             n.writelines(translator.translate(line) + "\n")
             draw = ImageDraw.Draw(newimg)
             # font size 15 should be scaled for image size
-            font = ImageFont.truetype("arial.ttf", 12)
+            font = ImageFont.truetype("arial.ttf", 16)
             # In the next line, first 2 numbers are pixels to right and down of upper corner
             draw.text((0, 28), translator.translate(
                 line), fill=(0, 0, 0), font=font)
