@@ -8,6 +8,8 @@ from PIL import ImageFont, ImageDraw, Image
 pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
 
 # This function handles the core OCR processing of the input image.
+
+
 def ocr_core(filename, language):
     choice = 0
     if language == '1':
@@ -22,36 +24,61 @@ def ocr_core(filename, language):
 
 # Writes text extracted from image into a txt file named "script.txt"
 # which is saved in the same path as the input image file
+
+
 def writefile(image_path, strstr):
 	wordlist = strstr.split()
 	with open(image_path + '/script.txt', 'a') as f:
 		f.writelines("\r".join(wordlist))
 
-# Takes lines of text extracted from txt file and translates them, outputs translated
-# version into a txt file called "translated.txt" and also outputs an image
-# file with the translated text called Capture.JPG.
-def translate_text(image_path):
-    # sets target language and input language for translator
-    translator = Translator(to_lang="en", from_lang="zh")
+# Takes lines of text extracted from txt file and translates them,
+# outputs translated version into a txt file called "translated.txt"
+# and an image file with the translated text called Capture.JPG.
 
-    # sets the dimensions and background color for the new image object
-    width = 500
-    height = 500
-    im = Image.new(mode="RGB", size=(width, height), color=(255, 255, 255))
+
+def translate_text(image_path, imagename, language):
+    # sets target language and input language for translator
+    choice = 0
+    if language == '1':
+        choice = "zh"
+    elif language == '2':
+        choice = 'de'
+    elif language == '3':
+        choice = 'hu'
+    translator = Translator(to_lang="en", from_lang=choice)
 
     # opens the OCR output file and reads each line into contents
     with open(image_path + '/script.txt', encoding='utf-8') as f:
         contents = f.readlines()
 
-    # Generates a JPG image file from the translated txt file
+    # sets the dimensions and background color for the new image object
+    oldimg = Image.open(image_path + "/" + imagename)
+    # Grab the size of the input image
+    # Later we can choose a font size depending on input image size
+    width, height = oldimg.size
+    width *= 3
+    height *= 3
+
+    # Grab a color sample, to reproduce the background in the output image
+    # The code obtains an rgb tuple at position (x,y)
+    # grabs pixel from upper left corner
+    background = oldimg.getpixel((5, 5))
+
+    newimg = Image.new(mode="RGB", size=(width, height), color=background)
+
+    # Generates a txt file and JPG image file from the translated txt file
     with open(image_path + '/translated.txt', 'a') as n:
         for line in contents:   # iterates thru each line of text in "contents"
+            # translate each line and write to file
             n.writelines(translator.translate(line) + "\n")
-            draw = ImageDraw.Draw(im)
-            font = ImageFont.truetype("arial.ttf", 15)
-            draw.text((10, 14), translator.translate(line), fill=(0, 0, 0, 0), font=font)
-        im.save("Capture.JPG")
-        im.show()
+            draw = ImageDraw.Draw(newimg)
+            # font size 15 should be scaled for image size
+            font = ImageFont.truetype("arial.ttf", 16)
+            # In the next line, first 2 numbers are pixels to right and down of upper corner
+            draw.text((0, 28), translator.translate(
+                line), fill=(0, 0, 0), font=font)
+        newimg.save("Capture.JPG")
+        newimg.show()  # I don't think this works
 
 # Change the translator provider
 # Default is mymemory but it limits the number of translations per day.
@@ -77,6 +104,6 @@ print("OCR of image " + userfile + " is done.")
 
 # Perform the translation step
 print("Now performing the translation.")
-translate_text(path)
+translate_text(path, userfile, inlanguage)
 
 print("~~~~~~Finished~~~~~~")
