@@ -117,7 +117,7 @@ def translate_text(image_path, imagename, language):
 path = input('file path: ')
 userfile = input('file name: ')
 
-("You have 3 choices for input language. Enter 1 for Chinese, 2 for German, or 3 for Hungarian.")
+print("You have 3 choices for input language. Enter 1 for Chinese, 2 for German, or 3 for Hungarian.")
 inlanguage = input('Your choice: ')
 print('\n')
 
