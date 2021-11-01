@@ -10,9 +10,10 @@ The .txt file is then passed to a translator that translates the text to
 English and outputs the translation as both a .txt file and a JPG image file.
 """
 
-# The next line may not be needed. It is needed if tesseract is not in your PATH
+# The next line may not be needed. Uncomment if needed.
+# It is needed if tesseract is not in your PATH
 # (Check path for tesseract and modify the line below if needed)
-pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
+# pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
 
 
 def ocr_core(filename, language):
@@ -123,13 +124,13 @@ print('\n')
 print("******Starting******")
 
 # Perform OCR on the input image file and let user know when finished this step
-# text = ocr_core(path + "/" + userfile, inlanguage)
-#writefile(path, text)
-#print("OCR of image " + userfile + " is done.")
+text = ocr_core(path + "/" + userfile, inlanguage)
+writefile(path, text)
+print("OCR of image " + userfile + " is done.")
 
 # Perform the translation step
-#print("Now performing the translation.")
-#print("The bigger your file, to longer the wait...")
-#translate_text(path, userfile, inlanguage)
+print("Now performing the translation.")
+print("The bigger your file, to longer the wait...")
+translate_text(path, userfile, inlanguage)
 
-# print("~~~~~~Finished~~~~~~")
+print("~~~~~~Finished~~~~~~")
