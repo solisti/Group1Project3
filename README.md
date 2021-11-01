@@ -17,7 +17,8 @@ To use, a file containing an image and a font file will be needed.
 * desired language data files from choice of over 130 languages (only English is included by default)
 
 ### Installing and running the software
- * You can just run the code in the Jupyter Notebook (the .ipynb file) in this repository (hosted by Google Colaboratory, or on your own system if you have dependencies for running .ipynb files). Otherwise, follow the instructions in the Jupyter Notebook to install the needed libraries in your own system, and run the imgtl.py file with the Python 3 interpreter. Instructions in the Jupyter Notebook are for Debian/Ubuntu Linux. Follow the links in the Jupyter Notebook to install in other systems.
+ * You can just run the code in the Jupyter Notebook (the .ipynb file) in this repository (hosted by Google Colaboratory, or on your own system if you have dependencies for running .ipynb files). Click the "Play" button in each code block, sequentially. Otherwise, follow the instructions in the Jupyter Notebook to install the needed libraries in your own system, and run the imgtl.py file with the Python 3 interpreter. Instructions in the Jupyter Notebook are for Debian/Ubuntu Linux. Follow the links in the Jupyter Notebook to install in other systems.
+ * For detailed documentation of the Python code, download the repository from GitHub, and open the HTML files inside Documentation/\_build/html using a web browser.
  
 ## Authors
 * Alexander Archer
@@ -31,4 +32,4 @@ To use, a file containing an image and a font file will be needed.
   Initial Release
 
 # Acknowledgements/Works Cited
-Inspiration, resources used, etc.
+
