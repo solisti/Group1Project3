@@ -4,7 +4,7 @@ This is group 1's implementation of Project 3 for EECS 448. This project represe
 ## Prototype description
 The prototype is an image-to-text OCR reader and translation app that outputs an image file. It works by taking in an image as input, reading the text contained in the image,  and translating said text. It then replaces the source text on the image with the translated version. 
 
-To use, a file containing an image and a font file will be needed. 
+To use, an image file with text, and a font file will be needed. Sample image files and an Arial font file are provided in this repository.
 
 ## Getting Started
 
