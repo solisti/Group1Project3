@@ -32,9 +32,8 @@ To use, a file containing an image and a font file will be needed.
   Initial Release
 
 # Acknowledgements/Works Cited
-PIL (Pillow) tutorial: https://pillow.readthedocs.io/en/stable/handbook/tutorial.html
-tesseract OCR engine: https://tesseract-ocr.github.io/tessdoc/Home.html
-pytesseract, a Python wrapper for tesseract: https://pypi.org/project/pytesseract/
-translate: https://pypi.org/project/translate/
-Sphinx documentation generator: https://www.sphinx-doc.org/en/master/index.html
-
+* PIL (Pillow) tutorial: https://pillow.readthedocs.io/en/stable/handbook/tutorial.html
+* tesseract OCR engine: https://tesseract-ocr.github.io/tessdoc/Home.html
+* pytesseract, a Python wrapper for tesseract: https://pypi.org/project/pytesseract/
+* translate: https://pypi.org/project/translate/
+* Sphinx documentation generator: https://www.sphinx-doc.org/en/master/index.html
