@@ -18,7 +18,7 @@ To use, a file containing an image and a font file will be needed.
 
 ### Installing and running the software
  * You can just run the code in the Jupyter Notebook (the .ipynb file) in this repository (hosted by Google Colaboratory, or on your own system if you have dependencies for running .ipynb files). Click the "Play" button in each code block, sequentially. Otherwise, follow the instructions in the Jupyter Notebook to install the needed libraries in your own system, and run the imgtl.py file with the Python 3 interpreter. Instructions in the Jupyter Notebook are for Debian/Ubuntu Linux. Follow the links in the Jupyter Notebook to install in other systems.
- * For detailed documentation of the Python code, download the repository from GitHub, and open the HTML files inside Documentation/\_build/html using a web browser.
+ * For detailed documentation of the Python code, download the repository from GitHub, and open the HTML files inside Documentation/\_build/html using a web browser. 
  
 ## Authors
 * Alexander Archer
@@ -32,4 +32,9 @@ To use, a file containing an image and a font file will be needed.
   Initial Release
 
 # Acknowledgements/Works Cited
+PIL (Pillow) tutorial: https://pillow.readthedocs.io/en/stable/handbook/tutorial.html
+tesseract OCR engine: https://tesseract-ocr.github.io/tessdoc/Home.html
+pytesseract, a Python wrapper for tesseract: https://pypi.org/project/pytesseract/
+translate: https://pypi.org/project/translate/
+Sphinx documentation generator: https://www.sphinx-doc.org/en/master/index.html
 
