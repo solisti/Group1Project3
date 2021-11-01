@@ -92,7 +92,7 @@ def translate_text(image_path, imagename, language):
 
     # Generates a txt file and JPG image file from the translated txt file
     with open(image_path + '/translated.txt', 'a') as n:
-        movedown = 20   # variable to help draw multiple text lines to image. This is initial verticle position
+        movedown = 20   # variable to help draw multiple text lines to image. This is initial vertical position
         for line in contents:   # iterates thru each line of text in "contents"
             # translate each line and write to file
             n.writelines(translator.translate(line) + "\n")
@@ -100,9 +100,8 @@ def translate_text(image_path, imagename, language):
             # font size 20 should be scaled for image size
             font = ImageFont.truetype("arial.ttf", 20)
             # In the next line, first 2 numbers are pixels to right and down of upper corner
-            draw.text((5, movedown), translator.translate(line), fill=(
-                0, 0, 0), font=font)  # font color set to black
-            movedown += 25     # This is the line spacing tha works well for 20 pt font
+            draw.text((5, movedown), translator.translate(line), fill=(0, 0, 0), font=font)  # font color set to black
+            movedown += 25     # This is the line spacing that works well for 20 pt font
         newimg.save("Capture.JPG")
         newimg.show()  # I don't think this works
 
@@ -117,20 +116,20 @@ def translate_text(image_path, imagename, language):
 path = input('file path: ')
 userfile = input('file name: ')
 
-print("You have 3 choices for input language. Eneter 1 for Chinese, 2 for German, or 3 for Hungarian.")
+("You have 3 choices for input language. Enter 1 for Chinese, 2 for German, or 3 for Hungarian.")
 inlanguage = input('Your choice: ')
 print('\n')
 
 print("******Starting******")
 
 # Perform OCR on the input image file and let user know when finished this step
-text = ocr_core(path + "/" + userfile, inlanguage)
-writefile(path, text)
-print("OCR of image " + userfile + " is done.")
+# text = ocr_core(path + "/" + userfile, inlanguage)
+#writefile(path, text)
+#print("OCR of image " + userfile + " is done.")
 
 # Perform the translation step
-print("Now performing the translation.")
-print("The bigger your file, to longer the wait...")
-translate_text(path, userfile, inlanguage)
+#print("Now performing the translation.")
+#print("The bigger your file, to longer the wait...")
+#translate_text(path, userfile, inlanguage)
 
-print("~~~~~~Finished~~~~~~")
+# print("~~~~~~Finished~~~~~~")
