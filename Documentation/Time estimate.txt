@@ -1,5 +1,8 @@
-Estimate of person-hours for completing the project
-
-Using the agile methodology, we assigned the documentation 3 story points, the input 4 story points and the output 4 story points,
-
-Each sprint in our group would be in 60 minute increments, and each story point would take about 2 sprints. So the total would be 11 points x 2 sprint/point x 60 mins = 1320 minutes, or 22 person/hours total. 
+Project 1 took 71 hrs
+Project 2 took 66.5 hrs
+Project 3 took 31.67 hrs
+        Using the agile methodology in project 3, we assigned the documentation 3 story points, the input 4 story points and the output 4 story points.
+        The estimation for project 3 was 22 hours.
+Project 4 Estimation:
+        Since, our point values were off for project 3, we assigned the presentation 3 story points, the documentation 5 story points, the test-suite 5 story points, and polishing         of the project 5 story points. In total, the number of story points is 18.
+        With each sprint taking 60 minutes and each story point taking 2 sprints, the total time estimation is 18 points x 2 sprint/point x 60 minutes = 2160 minutes, or 36 hours.
