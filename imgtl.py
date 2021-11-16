@@ -2,6 +2,7 @@ from PIL import Image
 import pytesseract
 from translate import Translator
 from PIL import ImageFont, ImageDraw, Image
+import os
 
 """
 Python 3 script file for obtaining an image file with text from a user
@@ -114,23 +115,62 @@ def translate_text(image_path, imagename, language):
 
 
 # Obtain input path and file name from the user
-path = input('file path: ')
-userfile = input('file name: ')
 
-print("You have 3 choices for input language. Enter 1 for Chinese, 2 for German, or 3 for Hungarian.")
-inlanguage = input('Your choice: ')
-print('\n')
+path = input('Enter a file path: ')
+userfile = input('Enter a file name: ')
+#OS library methods that check if a filepath and a file exist
+isPathExist = os.path.exists(path)
+isUserFileExist = os.path.exists(userfile)
+directoryValid = os.path.isdir(path)
+truthCondition1 = 0
+truthCondition2 = 0
+truthCondition3 = 0
 
-print("******Starting******")
 
-# Perform OCR on the input image file and let user know when finished this step
-text = ocr_core(path + "/" + userfile, inlanguage)
-writefile(path, text)
-print("OCR of image " + userfile + " is done.")
+#checks if directory is valid
+if(directoryValid == False):
+    print("Error: invalid directory, exiting program")
+   
 
-# Perform the translation step
-print("Now performing the translation.")
-print("The bigger your file, to longer the wait...")
-translate_text(path, userfile, inlanguage)
+#checks for filepath validity
+elif(isPathExist == False ):
+    print("Error: invalid file path, exiting program")
 
-print("~~~~~~Finished~~~~~~")
+#checks for file existance
+elif(isUserFileExist == False):
+    print("Error: invalid File, exiting program")
+ 
+else:
+    #ensures proper input by using isnumeric method to see if input is completely numerical, if input is numerical and one of the specified 
+    #numbers, the input is then cast to an int to avoid unnecessary looping then recast as a string so the translation can take place
+    print("You have 3 choices for input language. Enter 1 for Chinese, 2 for German, or 3 for Hungarian.")
+    inlanguage = (input('Your choice: '))
+    if(inlanguage.isnumeric() == True and (int(inlanguage)==1 or int(inlanguage) ==2 or int(inlanguage)==3)):
+        inlanguage = int(inlanguage)
+    else:
+        #Continuously loops until user enters proper language choice, use isnumeric() method and int casting 
+        #to do checks and ensure program doesn't crash if improper input is detected
+        while(inlanguage != 1 or inlanguage !=2 or inlanguage !=3):
+            print("Error: please select specified numbers to translate")
+            print("You have 3 choices for input language. Enter 1 for Chinese, 2 for German, or 3 for Hungarian.")
+            inlanguage = (input('Your choice:  '))
+            if(inlanguage.isnumeric() == True and (int(inlanguage)==1 or int(inlanguage) ==2 or int(inlanguage)==3)):
+                inlanguage = int(inlanguage)
+                break
+        
+    inlanguage = str(inlanguage)
+    print('\n')
+
+    print("******Starting******")
+
+    # Perform OCR on the input image file and let user know when finished this step
+    text = ocr_core(path + "/" + userfile, inlanguage)
+    writefile(path, text)
+    print("OCR of image " + userfile + " is done.")
+
+    # Perform the translation step
+    print("Now performing the translation.")
+    print("The bigger your file, to longer the wait...")
+    translate_text(path, userfile, inlanguage)
+
+    print("~~~~~~Finished~~~~~~")
