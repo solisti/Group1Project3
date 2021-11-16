@@ -32,6 +32,10 @@ def ocr_core(filename, language):
         choice = 'deu'
     elif language == '3':
         choice = 'hun'
+    elif language == '4':
+        choice = 'spa'
+    elif language == '5':
+        choice = 'fra'
 
     text = pytesseract.image_to_string(Image.open(filename), lang=choice)
     return text
@@ -69,7 +73,12 @@ def translate_text(image_path, imagename, language):
         choice = 'de'
     elif language == '3':
         choice = 'hu'
+    elif language == '4':
+        choice = 'es'
+    elif language == '5':
+        choice == 'fr'
 
+    #sets font for chosen font choice
     fontChoice =0
     if fontChoice == '1':
         font = ImageFont.truetype("arial.pil")
@@ -77,6 +86,8 @@ def translate_text(image_path, imagename, language):
         font = ImageFont.truetype("times new roman.pil")
     elif fontChoice == '3':
         font = ImageFont.truetype("comic sans.pil")
+
+
 
 
     translator = Translator(to_lang="en", from_lang=choice)
@@ -122,6 +133,16 @@ def translate_text(image_path, imagename, language):
 # secret = '<your secret from Microsoft or DeepL>'
 # translator = Translator(provider='<the name of the provider, eg. microsoft or deepl>', to_lang=to_lang, secret_access_key=secret)
 
+#code to change font color, using rgb values
+fontColorChoice = 0
+if fontColorChoice == '1': #changes color to black
+    fill = (0, 0, 0),
+if fontColorChoice == '2': #changes color to red
+    fill = (255,0,0),
+elif fontColorChoice == '3': #changes color to blue
+    fill = (0,0,255),
+elif fontColorChoice == '4': #changes color to pink
+    fill = (255, 192, 203),
 
 # Obtain input path and file name from the user
 
@@ -152,25 +173,27 @@ elif(isUserFileExist == False):
 else:
     #ensures proper input by using isnumeric method to see if input is completely numerical, if input is numerical and one of the specified 
     #numbers, the input is then cast to an int to avoid unnecessary looping then recast as a string so the translation can take place
-    print("You have 3 choices for input language. Enter 1 for Chinese, 2 for German, or 3 for Hungarian.")
+    print("You have 5 choices for input language. Enter 1 for Chinese, 2 for German, 3 for Hungarian, 4 for Spanish or 5 for French.")
     inlanguage = (input('Your choice: '))
-    if(inlanguage.isnumeric() == True and (int(inlanguage)==1 or int(inlanguage) ==2 or int(inlanguage)==3)):
+    if(inlanguage.isnumeric() == True and (int(inlanguage)==1 or int(inlanguage) ==2 or int(inlanguage)==3 or int(inlanguage) ==4 or int(inlanguage) ==5 )):
         inlanguage = int(inlanguage)
     else:
         #Continuously loops until user enters proper language choice, use isnumeric() method and int casting 
         #to do checks and ensure program doesn't crash if improper input is detected
-        while(inlanguage != 1 or inlanguage !=2 or inlanguage !=3):
+        while(inlanguage != 1 or inlanguage !=2 or inlanguage !=3 or inlanguage !=4 or inlanguage !=5):
             print("Error: please select specified numbers to translate.")
-            print("You have 3 choices for input language. Enter 1 for Chinese, 2 for German, or 3 for Hungarian.")
+            print("You have 5 choices for input language. Enter 1 for Chinese, 2 for German, 3 for Hungarian, 4 for Spanish or 5 for French.")
             inlanguage = (input('Your choice:  '))
-            if(inlanguage.isnumeric() == True and (int(inlanguage)==1 or int(inlanguage) ==2 or int(inlanguage)==3)):
+            if(inlanguage.isnumeric() == True and (int(inlanguage)==1 or int(inlanguage) ==2 or int(inlanguage)==3) or int(inlanguage) ==4 or int(inlanguage)==5):
                 inlanguage = int(inlanguage)
                 break
+    #syntax to change font to desired choice, three font options, checks to see if input is valid, if not else statement executed
     print("You have 3 choices for font choice: Enter 1 for arial, Enter 2 times new roman , Enter 3 for comic sans,")
     fontChoice  = (input('Input your font choice:'))   
     if(fontChoice.isnumeric()== True and (int(fontChoice )==1 or int(fontChoice )==2)or int(fontChoice )==3):
         fontChoice = int(fontChoice )
     else:
+        #loops until the user provides a proper choice, safeguarded to prevent crashing in case the user enters a letter instead of a number
         while(fontChoice != 1 or fontChoice  != 2 or fontChoice  != 3 or fontChoice  !=4):
             print("Error: please select a specified number to pick a font.")
             print("You have 3 choices for font choice: Enter 1 for arial, Enter 2 times new roman , Enter 3 for comic sans,")
@@ -178,6 +201,22 @@ else:
             if(fontChoice.isnumeric()== True and (int(fontChoice ==1 or int(fontChoice)==2 or int(fontChoice )==3))):
                 fontChoice = int(fontChoice )
                 break
+    #syntax to change font to desired choice, four font color options, checks to see if input is valid, if not else statement executed               
+    print("You have 4 choices for font color: Enter 1 for black, 2 for red, 3 for blue, or 4 for pink")
+    fontColorChoice = (input('Input your font color choice: '))
+    if(fontColorChoice.isnumeric() == True and (int(fontColorChoice ==1 ) or int(fontColorChoice)==2 or int(fontColorChoice)==3 or int(fontColorChoice)==4 )):
+        fontColorChoice = int(fontColorChoice)
+    else:
+        #loops until the user provides a proper choice, safeguarded to prevent crashing in case the user enters a letter instead of a number, 
+        while(fontColorChoice != 1 or fontColorChoice != 2 or fontColorChoice != 3 or fontColorChoice != 4):
+            print("Error, please select one of the specified colors")
+            print("You have 4 choices for font color: Enter 1 for black, 2 for red, 3 for blue, or 4 for pink")
+            fontColorChoice = (input('Input your font color choice: '))
+            if(fontColorChoice.isnumeric() == True and ( int(fontColorChoice ==1 ) or int(fontColorChoice)==2 or int(fontColorChoice)==3 or int(fontColorChoice)==4 )):
+                fontColorChoice = int(fontColorChoice)
+                break
+
+
     
     inlanguage = str(inlanguage)
     print('\n')
