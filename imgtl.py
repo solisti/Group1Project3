@@ -70,6 +70,15 @@ def translate_text(image_path, imagename, language):
     elif language == '3':
         choice = 'hu'
 
+    fontChoice =0
+    if fontChoice == '1':
+        font = ImageFont.truetype("arial.pil")
+    elif fontChoice == '2':
+        font = ImageFont.truetype("times new roman.pil")
+    elif fontChoice == '3':
+        font = ImageFont.truetype("comic sans.pil")
+
+
     translator = Translator(to_lang="en", from_lang=choice)
 
     # opens the OCR output file and reads each line into contents
@@ -151,13 +160,25 @@ else:
         #Continuously loops until user enters proper language choice, use isnumeric() method and int casting 
         #to do checks and ensure program doesn't crash if improper input is detected
         while(inlanguage != 1 or inlanguage !=2 or inlanguage !=3):
-            print("Error: please select specified numbers to translate")
+            print("Error: please select specified numbers to translate.")
             print("You have 3 choices for input language. Enter 1 for Chinese, 2 for German, or 3 for Hungarian.")
             inlanguage = (input('Your choice:  '))
             if(inlanguage.isnumeric() == True and (int(inlanguage)==1 or int(inlanguage) ==2 or int(inlanguage)==3)):
                 inlanguage = int(inlanguage)
                 break
-        
+    print("You have 3 choices for font choice: Enter 1 for arial, Enter 2 times new roman , Enter 3 for comic sans,")
+    fontChoice  = (input('Input your font choice:'))   
+    if(fontChoice.isnumeric()== True and (int(fontChoice )==1 or int(fontChoice )==2)or int(fontChoice )==3):
+        fontChoice = int(fontChoice )
+    else:
+        while(fontChoice != 1 or fontChoice  != 2 or fontChoice  != 3 or fontChoice  !=4):
+            print("Error: please select a specified number to pick a font.")
+            print("You have 3 choices for font choice: Enter 1 for arial, Enter 2 times new roman , Enter 3 for comic sans,")
+            fontChoice = (input('Input your font choice:'))   
+            if(fontChoice.isnumeric()== True and (int(fontChoice ==1 or int(fontChoice)==2 or int(fontChoice )==3))):
+                fontChoice = int(fontChoice )
+                break
+    
     inlanguage = str(inlanguage)
     print('\n')
 
@@ -170,7 +191,7 @@ else:
 
     # Perform the translation step
     print("Now performing the translation.")
-    print("The bigger your file, to longer the wait...")
+    print("The bigger your file, the longer the wait...")
     translate_text(path, userfile, inlanguage)
 
     print("~~~~~~Finished~~~~~~")
