@@ -229,9 +229,9 @@ def run():
         directoryValid = os.path.isdir(path)
 
         # Output error messages for bad user input for file path and file name
-        #checks if directory is valid. Commented out because too many error messages
-        # if(directoryValid == False):
-        # print("Error: invalid directory")
+        #checks if directory is valid. 
+        if(directoryValid == False):
+            print("Error: invalid directory")
         #checks for filepath validity
         if(isPathExist == False):
             print("Error: invalid file path")
