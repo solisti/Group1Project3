@@ -130,8 +130,8 @@ def translate_text(image_path, imagename, language, fontChoice, fontColorChoice)
             # translate each line and write to file
             n.writelines(translator.translate(line) + "\n")
             draw = ImageDraw.Draw(newimg)
-            # font size 20 should be scaled for image size
-            font = ImageFont.truetype(customfont, 20)
+            # font size 18 should be scaled for image size
+            font = ImageFont.truetype(customfont, 18)
             # In the next line, first 2 numbers are pixels to right and down of upper corner
             draw.text((5, movedown), translator.translate(
                 line), fill=customfill, font=font)
