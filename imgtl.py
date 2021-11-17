@@ -111,9 +111,9 @@ def translate_text(image_path, imagename, language, fontChoice, fontColorChoice)
         if fontChoice == '1':
             customfont = "arial.ttf"
         elif fontChoice == '2':
-            customfont = "times new roman.ttf"
+            customfont = "Times New Roman.ttf"
         elif fontChoice == '3':
-            customfont = "comic sans.ttf"
+            customfont = "Comic Sans MS.ttf"
 
         # sets font color for output file
         if fontColorChoice == '1':  # sets color to black
