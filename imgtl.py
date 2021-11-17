@@ -2,7 +2,7 @@ from PIL import Image
 import pytesseract
 from translate import Translator
 from PIL import ImageFont, ImageDraw, Image
-import os
+import os  # for methods that check if a filepath and a file exist
 
 """
 Python 3 script file for obtaining an image file with text from a user
@@ -200,110 +200,88 @@ def textg1(path, filename, language):
     else:
         return False
 
-# Change the translator provider
-# Default is mymemory but it limits the number of translations per day.
-# Template code to change provider:
-# secret = '<your secret from Microsoft or DeepL>'
-# translator = Translator(provider='<the name of the provider, eg. microsoft or deepl>', to_lang=to_lang, secret_access_key=secret)
+# Function for running the standard OCR-Translation program
+def run():
+    # Obtain input path and file name from the user and check if valid
+    error = 0
+    while error == 0:
+        path = input('file path: ')
+        userfile = input('file name: ')
 
-#code to change font color, using rgb values
-fontColorChoice = 0
-if fontColorChoice == '1': #changes color to black
-    fill = (0, 0, 0),
-if fontColorChoice == '2': #changes color to red
-    fill = (255,0,0),
-elif fontColorChoice == '3': #changes color to blue
-    fill = (0,0,255),
-elif fontColorChoice == '4': #changes color to pink
-    fill = (255, 192, 203),
+        #OS library methods that check if the user-entered file path and a file exist
+        isPathExist = os.path.exists(path)
+        isUserFileExist = os.path.exists(userfile)
+        # if we check path, why also check directory?
+        directoryValid = os.path.isdir(path)
 
-# Obtain input path and file name from the user
+        # Output error messages for bad user input for file path and file name
+        #checks if directory is valid. Commented out because too many error messages
+        # if(directoryValid == False):
+        # print("Error: invalid directory")
+        #checks for filepath validity
+        if(isPathExist == False):
+            print("Error: invalid file path")
+        #checks for file existance
+        elif(isUserFileExist == False):
+            print("Error: invalid File")
+        else:
+            error = 1
 
-path = input('Enter a file path: ')
-userfile = input('Enter a file name: ')
-#OS library methods that check if a filepath and a file exist
-isPathExist = os.path.exists(path)
-isUserFileExist = os.path.exists(userfile)
-directoryValid = os.path.isdir(path)
-truthCondition1 = 0
-truthCondition2 = 0
-truthCondition3 = 0
+    # Obtain language choice and check if valid
+    print("\nYou have 5 choices for input language. \nEnter 1 for Chinese, 2 for German, 3 for Hungarian, 4 for Spanish, or 5 for French.")
+    error = 0
+    while error == 0:
+        inlanguage = input('Your language choice: ')
+        if(inlanguage.isnumeric() == True and (int(inlanguage) == 1 or int(inlanguage) == 2 or int(inlanguage) == 3 or int(inlanguage) == 4 or int(inlanguage) == 5)):
+            error = 1
+        else:
+            print("Please enter a valid number (1 - 5).")
 
+    # Obtain font style for output image and check if valid entry
+    print("\nYou have 3 choices for output font. \nEnter 1 for Arial, 2 for Times New Roman , 3 for Comic Sans.")
+    error = 0
+    while error == 0:
+        fontChoice = input('Your font choice:  ')
+        if fontChoice == '1' or fontChoice == '2' or fontChoice == '3':
+            error = 1
+        else:
+            print("Invalid entry. Please enter a valid number, 1 - 3.")
 
-#checks if directory is valid
-if(directoryValid == False):
-    print("Error: invalid directory, exiting program")
-   
-
-#checks for filepath validity
-elif(isPathExist == False ):
-    print("Error: invalid file path, exiting program")
-
-#checks for file existance
-elif(isUserFileExist == False):
-    print("Error: invalid File, exiting program")
- 
-else:
-    #ensures proper input by using isnumeric method to see if input is completely numerical, if input is numerical and one of the specified 
-    #numbers, the input is then cast to an int to avoid unnecessary looping then recast as a string so the translation can take place
-    print("You have 5 choices for input language. Enter 1 for Chinese, 2 for German, 3 for Hungarian, 4 for Spanish or 5 for French.")
-    inlanguage = (input('Your choice: '))
-    if(inlanguage.isnumeric() == True and (int(inlanguage)==1 or int(inlanguage) ==2 or int(inlanguage)==3 or int(inlanguage) ==4 or int(inlanguage) ==5 )):
-        inlanguage = int(inlanguage)
-    else:
-        #Continuously loops until user enters proper language choice, use isnumeric() method and int casting 
-        #to do checks and ensure program doesn't crash if improper input is detected
-        while(inlanguage != 1 or inlanguage !=2 or inlanguage !=3 or inlanguage !=4 or inlanguage !=5):
-            print("Error: please select specified numbers to translate.")
-            print("You have 5 choices for input language. Enter 1 for Chinese, 2 for German, 3 for Hungarian, 4 for Spanish or 5 for French.")
-            inlanguage = (input('Your choice:  '))
-            if(inlanguage.isnumeric() == True and (int(inlanguage)==1 or int(inlanguage) ==2 or int(inlanguage)==3) or int(inlanguage) ==4 or int(inlanguage)==5):
-                inlanguage = int(inlanguage)
-                break
-    #syntax to change font to desired choice, three font options, checks to see if input is valid, if not else statement executed
-    print("You have 3 choices for font choice: Enter 1 for arial, Enter 2 times new roman , Enter 3 for comic sans,")
-    fontChoice  = (input('Input your font choice:'))   
-    if(fontChoice.isnumeric()== True and (int(fontChoice )==1 or int(fontChoice )==2)or int(fontChoice )==3):
-        fontChoice = int(fontChoice )
-    else:
-        #loops until the user provides a proper choice, safeguarded to prevent crashing in case the user enters a letter instead of a number
-        while(fontChoice != 1 or fontChoice  != 2 or fontChoice  != 3 or fontChoice  !=4):
-            print("Error: please select a specified number to pick a font.")
-            print("You have 3 choices for font choice: Enter 1 for arial, Enter 2 times new roman , Enter 3 for comic sans,")
-            fontChoice = (input('Input your font choice:'))   
-            if(fontChoice.isnumeric()== True and (int(fontChoice ==1 or int(fontChoice)==2 or int(fontChoice )==3))):
-                fontChoice = int(fontChoice )
-                break
-    #syntax to change font to desired choice, four font color options, checks to see if input is valid, if not else statement executed               
-    print("You have 4 choices for font color: Enter 1 for black, 2 for red, 3 for blue, or 4 for pink")
-    fontColorChoice = (input('Input your font color choice: '))
-    if(fontColorChoice.isnumeric() == True and (int(fontColorChoice ==1 ) or int(fontColorChoice)==2 or int(fontColorChoice)==3 or int(fontColorChoice)==4 )):
-        fontColorChoice = int(fontColorChoice)
-    else:
-        #loops until the user provides a proper choice, safeguarded to prevent crashing in case the user enters a letter instead of a number, 
-        while(fontColorChoice != 1 or fontColorChoice != 2 or fontColorChoice != 3 or fontColorChoice != 4):
-            print("Error, please select one of the specified colors")
-            print("You have 4 choices for font color: Enter 1 for black, 2 for red, 3 for blue, or 4 for pink")
-            fontColorChoice = (input('Input your font color choice: '))
-            if(fontColorChoice.isnumeric() == True and ( int(fontColorChoice ==1 ) or int(fontColorChoice)==2 or int(fontColorChoice)==3 or int(fontColorChoice)==4 )):
-                fontColorChoice = int(fontColorChoice)
-                break
-
-
-    
-    inlanguage = str(inlanguage)
-    print('\n')
-
-    print("******Starting******")
+    # Obtain font color choice from user and check if input is valid
+    print("\nYou have 4 choices for output font color. \nEnter 1 for black, 2 for red, 3 for blue, or 4 for pink.")
+    error = 0
+    while error == 0:
+        fontColorChoice = input('Your font color choice: ')
+        if fontColorChoice == '1' or fontColorChoice == '2' or fontColorChoice == '3' or fontColorChoice == '4':
+            error = 1
+        else:
+            print("Invalid entry. Please enter a valid number, 1 - 4.")
 
     # Perform OCR on the input image file and let user know when finished this step
-    text = ocr_core(path + "/" + userfile, inlanguage)
-    writefile(path, text)
-    print("OCR of image " + userfile + " is done.")
+    # Give user a choice to test the software
+    print("\nDo you want to use the software normally, or test it with a test suite?")
+    print("Enter 1 to use normally, enter 2 to test software function.")
+    error = 0
+    while error == 0:
+        choice = input("Your choice: ")
+        print('\n')
+        if choice == '1' or '2':
+            error = 1
+        else:
+            print("Please enter a valid entry: 1 or 2.\n")
+    if choice == '2':
+        test_suite(path, userfile, inlanguage)
+    elif choice == '1':
+        print("******Starting******")
+        text = ocr_core(path + "/" + userfile, inlanguage)
+        writefile(path, text)
+        print("OCR of image " + userfile + " is done.")
 
-    # Perform the translation step
-    print("Now performing the translation.")
-    print("The bigger your file, the longer the wait...")
-    translate_text(path, userfile, inlanguage)
+        # Perform the translation step
+        print("Now performing the translation.")
+        print("The bigger your file, the longer the wait...")
+        translate_text(path, userfile, inlanguage, fontChoice, fontColorChoice)
 
-    print("~~~~~~Finished~~~~~~")
+        print("~~~~~~Finished~~~~~~")
+
+run()
