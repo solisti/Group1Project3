@@ -2,9 +2,9 @@
 This is group 1's implementation of Project 3 for EECS 448. This project represents a prototype of an image to text OCR reader and translation app. 
 
 ## Prototype description
-The prototype is an image-to-text OCR reader and translation app that outputs an image file. It works by taking in an image as input, reading the text contained in the image,  and translating said text. It then replaces the source text on the image with the translated version. 
+The prototype is an image-to-text OCR reader and translation app that outputs an image file. It works by taking in an image as input, reading the text contained in the image,  and translating said text. It then replaces the source text on the image with the translated version. The size and background color of the input and outpuf files will match. The user has a choice of 3 fonts and 4 font colors for the output image file.
 
-To use, an image file with text, and a font file will be needed. Sample image files and an Arial font file are provided in this repository.
+To use, an image file with text, and .ttf font files will be needed. Sample image files and font files for Arial, Times New Roman, and Comic Sans are provided in this repository.
 
 ## Getting Started
 
@@ -28,8 +28,8 @@ To use, an image file with text, and a font file will be needed. Sample image fi
 * Mac Hayes
 
 ## Version History
-* 0.1
-  Initial Release
+* 0.2
+  Beta Release
 
 # Acknowledgements/Works Cited
 * PIL (Pillow) tutorial: https://pillow.readthedocs.io/en/stable/handbook/tutorial.html
