@@ -87,9 +87,6 @@ def translate_text(image_path, imagename, language):
     elif fontChoice == '3':
         font = ImageFont.truetype("comic sans.pil")
 
-
-
-
     translator = Translator(to_lang="en", from_lang=choice)
 
     # opens the OCR output file and reads each line into contents
@@ -126,6 +123,82 @@ def translate_text(image_path, imagename, language):
             movedown += 25     # This is the line spacing that works well for 20 pt font
         newimg.save("Capture.JPG")
         newimg.show()  # I don't think this works
+
+
+# FUNCTIONS FOR TEST SUITE
+
+# Analyses and outputs test results
+def test_suite(path, filename, language):
+    Test1 = text_exist(path, filename, language)
+    Test2 = ocr_work()
+    Test3 = directory_valid(path)
+    Test4 = file_exist(filename)
+    Test5 = path_exist(path)
+    Test6 = textg1(path, filename, language)
+    if Test1 == True:
+       print("Test 1:Passed!")
+    else:
+       print("Test 1:Failed!")
+    if Test2 == True:
+       print("Test 2:Passed!")
+    else:
+       print("Test 2:Failed!")
+    if Test3 == True:
+       print("Test 3:Passed!")
+    else:
+       print("Test 3:Failed!")
+    if Test4 == True:
+       print("Test 4:Passed!")
+    else:
+       print("Test 4:Failed!")
+    if Test5 == True:
+       print("Test 5:Passed!")
+    else:
+       print("Test 5:Failed!")
+    if Test6 == True:
+       print("Test 6:Passed!")
+    else:
+      print("Test 6:Failed!")
+
+# This test uses ocr_path to check if text exists in this image
+def text_exist(path, filename, language):
+    test = True
+    text = ocr_core(path + "/" + filename, language)
+    if text.isspace():
+        test = False
+    return test
+
+# This test checks the very basics of whether ocr can read a singular word for yes
+# in French
+def ocr_work():
+    frantext = ocr_core("/content/fyes.png", '5')
+    if len(frantext) == 6:
+        return True
+    else:
+        return False
+
+#This test checks if directory is still valid
+def directory_valid(path):
+    valid = os.path.isdir(path)
+    return valid
+
+#This checks if file is still valid
+def file_exist(userfile):
+    valid = os.path.exists(userfile)
+    return valid
+
+#This checks if path is still valid
+def path_exist(path):
+    valid = os.path.exists(path)
+    return valid
+
+#This checks if the text read from ocr has more than one character
+def textg1(path, filename, language):
+    text = ocr_core(path + "/" + filename, language)
+    if len(text) > 1:
+        return True
+    else:
+        return False
 
 # Change the translator provider
 # Default is mymemory but it limits the number of translations per day.
