@@ -53,7 +53,7 @@ def writefile(image_path, strstr):
     with open(image_path + '/script.txt', 'a') as f:
 	    f.writelines("\r".join(wordlist))
 
-def translate_text(image_path, imagename, language):
+def translate_text(image_path, imagename, language, fontChoice, fontColorChoice):
     """Takes lines of text extracted from txt file and translates them,
     outputs translated version into a txt file called "translated.txt"
     and an image file with the translated text called Capture.JPG.
@@ -64,6 +64,10 @@ def translate_text(image_path, imagename, language):
     :type imagename: string
     :param language: the choice of input file language
     :type language: string
+    :param fontChoice: choice of the output file font
+    :type fontChoice: string
+    :param fontColorChoice: choice of the output file font color
+    :type fontColorChoice: string
     """
     # sets target language and input language for translator
     choice = 0
@@ -76,17 +80,7 @@ def translate_text(image_path, imagename, language):
     elif language == '4':
         choice = 'es'
     elif language == '5':
-        choice == 'fr'
-
-    #sets font for chosen font choice
-    fontChoice =0
-    if fontChoice == '1':
-        font = ImageFont.truetype("arial.pil")
-    elif fontChoice == '2':
-        font = ImageFont.truetype("times new roman.pil")
-    elif fontChoice == '3':
-        font = ImageFont.truetype("comic sans.pil")
-
+        choice = 'fr'
     translator = Translator(to_lang="en", from_lang=choice)
 
     # opens the OCR output file and reads each line into contents
@@ -110,20 +104,40 @@ def translate_text(image_path, imagename, language):
     newimg = Image.new(mode="RGB", size=(width, height), color=background)
 
     # Generates a txt file and JPG image file from the translated txt file
-    with open(image_path + '/translated.txt', 'a') as n:
-        movedown = 20   # variable to help draw multiple text lines to image. This is initial vertical position
-        for line in contents:   # iterates thru each line of text in "contents"
+    with open(image_path + '/translated.txt', 'a') as n:  # the 'a' argument means append
+        movedown = 20   # variable to help draw multiple text lines to image. This is initial verticle position
+
+        #sets font choice for output file
+        if fontChoice == '1':
+            customfont = "arial.ttf"
+        elif fontChoice == '2':
+            customfont = "times new roman.ttf"
+        elif fontChoice == '3':
+            customfont = "comic sans.ttf"
+
+        # sets font color for output file
+        if fontColorChoice == '1':  # sets color to black
+            customfill = (0, 0, 0)
+        elif fontColorChoice == '2':  # sets color to red
+            customfill = (255, 0, 0)
+        elif fontColorChoice == '3':  # sets color to blue
+            customfill = (0, 0, 255)
+        elif fontColorChoice == '4':  # sets color to pink
+            customfill = (255, 192, 203)
+
+        # iterates thru each line of text in "contents"
+        for line in contents:  
             # translate each line and write to file
             n.writelines(translator.translate(line) + "\n")
             draw = ImageDraw.Draw(newimg)
             # font size 20 should be scaled for image size
-            font = ImageFont.truetype("arial.ttf", 20)
+            font = ImageFont.truetype(customfont, 20)
             # In the next line, first 2 numbers are pixels to right and down of upper corner
-            draw.text((5, movedown), translator.translate(line), fill=(0, 0, 0), font=font)  # font color set to black
-            movedown += 25     # This is the line spacing that works well for 20 pt font
+            draw.text((5, movedown), translator.translate(
+                line), fill=customfill, font=font)
+            movedown += 25
         newimg.save("Capture.JPG")
         newimg.show()  # I don't think this works
-
 
 # FUNCTIONS FOR TEST SUITE
 
