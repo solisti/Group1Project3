@@ -136,7 +136,7 @@ def translate_text(image_path, imagename, language, fontChoice, fontColorChoice)
             draw.text((5, movedown), translator.translate(line), fill=customfill, font=font) 
             movedown += round(height/9.52)
         newimg.save("Capture.JPG")
-        newimg.show()  # I don't think this works
+        newimg.show()
 
 # FUNCTIONS FOR TEST SUITE
 
@@ -157,29 +157,29 @@ def test_suite(path, filename, language):
     Test5 = path_exist(path)
     Test6 = textg1(path, filename, language)
     if Test1 == True:
-       print("Test 1:Passed!")
+       print("Test 1:Passed! Text exists in image.")
     else:
-       print("Test 1:Failed!")
+       print("Test 1:Failed! Text does not exist in image.")
     if Test2 == True:
-       print("Test 2:Passed!")
+       print("Test 2:Passed! OCR reads characters from image.")
     else:
-       print("Test 2:Failed!")
+       print("Test 2:Failed! OCR does not read characters from image.")
     if Test3 == True:
-       print("Test 3:Passed!")
+       print("Test 3:Passed! Specified directory is valid.")
     else:
-       print("Test 3:Failed!")
+       print("Test 3:Failed! Specified directory is not valid.")
     if Test4 == True:
-       print("Test 4:Passed!")
+       print("Test 4:Passed! File exists.")
     else:
-       print("Test 4:Failed!")
+       print("Test 4:Failed! File does not exist.")
     if Test5 == True:
-       print("Test 5:Passed!")
+       print("Test 5:Passed! Path exists.")
     else:
-       print("Test 5:Failed!")
+       print("Test 5:Failed! Path does not exist.")
     if Test6 == True:
-       print("Test 6:Passed!")
+       print("Test 6:Passed! OCR text has more than one character.")
     else:
-      print("Test 6:Failed!")
+      print("Test 6:Failed! OCR text does not have more than one character.")
 
 def text_exist(path, filename, language):
     """This test uses ocr_path to check if text exists in this image
