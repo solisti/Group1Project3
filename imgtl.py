@@ -185,7 +185,7 @@ def text_exist(path, filename, language):
 # This test checks the very basics of whether ocr can read a singular word for yes
 # in French
 def ocr_work():
-    frantext = ocr_core("/content/fyes.png", '5')
+    frantext = ocr_core("./fyes.png", '5')
     if len(frantext) == 6:
         return True
     else:
