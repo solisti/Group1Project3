@@ -141,8 +141,16 @@ def translate_text(image_path, imagename, language, fontChoice, fontColorChoice)
 
 # FUNCTIONS FOR TEST SUITE
 
-# Analyses and outputs test results
 def test_suite(path, filename, language):
+    """Analyses and outputs thest results.
+
+    :param path: the path of the input file obtained from the user
+    :type path: string
+    :param filename: name of the input image file
+    :type filename: string
+    :param language: the choice of input file language
+    :type language: string
+    """
     Test1 = text_exist(path, filename, language)
     Test2 = ocr_work()
     Test3 = directory_valid(path)
@@ -174,47 +182,78 @@ def test_suite(path, filename, language):
     else:
       print("Test 6:Failed!")
 
-# This test uses ocr_path to check if text exists in this image
 def text_exist(path, filename, language):
+    """This test uses ocr_path to check if text exists in this image
+
+    :param path: the path of the input file obtained from the user
+    :type path: string
+    :param filename: name of the input image file
+    :type filename: string
+    :param language: the choice of input file language
+    :type language: string
+    """
     test = True
     text = ocr_core(path + "/" + filename, language)
     if text.isspace():
         test = False
     return test
 
-# This test checks the very basics of whether ocr can read a singular word for yes
-# in French
 def ocr_work():
+    """This test checks the very basics of whether ocr can read a singular word for yes
+    in French
+    """
     frantext = ocr_core("./fyes.png", '5')
     if len(frantext) == 6:
         return True
     else:
         return False
 
-#This test checks if directory is still valid
 def directory_valid(path):
+    """This test checks if directory is still valid
+
+    :param path: the path of the input file obtained from the user
+    :type path: string 
+    """
     valid = os.path.isdir(path)
     return valid
 
-#This checks if file is still valid
 def file_exist(userfile):
+    """This test checks if file is still valid
+
+    :param userfile: name of the input image file
+    :type userfile: string
+    """
     valid = os.path.exists(userfile)
     return valid
 
-#This checks if path is still valid
 def path_exist(path):
+    """This checks if path is still valid
+
+    :param path: the path of the input file obtained from the user
+    :type path: string
+    """
     valid = os.path.exists(path)
     return valid
 
-#This checks if the text read from ocr has more than one character
 def textg1(path, filename, language):
+    """This test checks if the text read from ocr has more than one character
+    
+    :param path: the path of the input file obtained from the user
+    :type path: string
+    :param filename: name of the input image file
+    :type filename: string
+    :param language: the choice of input file language
+    :type language: string
+    """
     text = ocr_core(path + "/" + filename, language)
     if len(text) > 1:
         return True
     else:
         return False
 
-# Function for running the standard OCR-Translation program
+"""Function for interacting with user and calling OCR, translate, 
+and test methods
+"""
 def run():
     # Obtain input path and file name from the user and check if valid
     error = 0
