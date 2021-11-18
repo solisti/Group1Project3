@@ -2,6 +2,6 @@ imgtl module
 ============
 
 .. automodule:: imgtl
-   :members:
-   :undoc-members:
-   :show-inheritance:
+    :members:
+    :undoc-members:
+    :show-inheritance:

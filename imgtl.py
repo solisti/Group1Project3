@@ -250,10 +250,10 @@ def textg1(path, filename, language):
     else:
         return False
 
-"""Function for interacting with user and calling OCR, translate, 
-and test methods
-"""
 def run():
+    """Function for interacting with user and calling OCR, translate, 
+    and test methods
+    """
     # Obtain input path and file name from the user and check if valid
     error = 0
     while error == 0:

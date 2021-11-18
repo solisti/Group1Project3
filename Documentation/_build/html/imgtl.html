@@ -1,24 +1,24 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>imgtl module &#8212; Project3 0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>imgtl module &#8212; Project 4: PITT 0.2 Beta Release documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Group1Project3" href="modules.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
@@ -28,68 +28,192 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          
-
           <div class="body" role="main">
             
-  <section id="module-imgtl">
+  <div class="section" id="module-imgtl">
 <span id="imgtl-module"></span><h1>imgtl module<a class="headerlink" href="#module-imgtl" title="Permalink to this headline">¶</a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="imgtl.ocr_core">
-<span class="sig-prename descclassname"><span class="pre">imgtl.</span></span><span class="sig-name descname"><span class="pre">ocr_core</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imgtl.ocr_core" title="Permalink to this definition">¶</a></dt>
-<dd><p>Handles the core OCR processing of the input image.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<em>string</em>) – the name of the input image file</p></li>
-<li><p><strong>language</strong> (<em>string</em>) – the choice of input file language</p></li>
-</ul>
-</dd>
-</dl>
+<dl class="function">
+<dt id="imgtl.directory_valid">
+<code class="descclassname">imgtl.</code><code class="descname">directory_valid</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imgtl.html#directory_valid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imgtl.directory_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>This test checks if directory is still valid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>string</em>) – the path of the input file obtained from the user</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="imgtl.translate_text">
-<span class="sig-prename descclassname"><span class="pre">imgtl.</span></span><span class="sig-name descname"><span class="pre">translate_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imagename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imgtl.translate_text" title="Permalink to this definition">¶</a></dt>
+<dl class="function">
+<dt id="imgtl.file_exist">
+<code class="descclassname">imgtl.</code><code class="descname">file_exist</code><span class="sig-paren">(</span><em>userfile</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imgtl.html#file_exist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imgtl.file_exist" title="Permalink to this definition">¶</a></dt>
+<dd><p>This test checks if file is still valid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>userfile</strong> (<em>string</em>) – name of the input image file</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="imgtl.ocr_core">
+<code class="descclassname">imgtl.</code><code class="descname">ocr_core</code><span class="sig-paren">(</span><em>filename</em>, <em>language</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imgtl.html#ocr_core"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imgtl.ocr_core" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles the core OCR processing of the input image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filename</strong> (<em>string</em>) – the name of the input image file</li>
+<li><strong>language</strong> (<em>string</em>) – the choice of input file language</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="imgtl.ocr_work">
+<code class="descclassname">imgtl.</code><code class="descname">ocr_work</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/imgtl.html#ocr_work"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imgtl.ocr_work" title="Permalink to this definition">¶</a></dt>
+<dd><p>This test checks the very basics of whether ocr can read a singular word for yes
+in French</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="imgtl.path_exist">
+<code class="descclassname">imgtl.</code><code class="descname">path_exist</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imgtl.html#path_exist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imgtl.path_exist" title="Permalink to this definition">¶</a></dt>
+<dd><p>This checks if path is still valid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>string</em>) – the path of the input file obtained from the user</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="imgtl.run">
+<code class="descclassname">imgtl.</code><code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/imgtl.html#run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imgtl.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function for interacting with user and calling OCR, translate, 
+and test methods</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="imgtl.test_suite">
+<code class="descclassname">imgtl.</code><code class="descname">test_suite</code><span class="sig-paren">(</span><em>path</em>, <em>filename</em>, <em>language</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imgtl.html#test_suite"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imgtl.test_suite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Analyses and outputs thest results.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> (<em>string</em>) – the path of the input file obtained from the user</li>
+<li><strong>filename</strong> (<em>string</em>) – name of the input image file</li>
+<li><strong>language</strong> (<em>string</em>) – the choice of input file language</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="imgtl.text_exist">
+<code class="descclassname">imgtl.</code><code class="descname">text_exist</code><span class="sig-paren">(</span><em>path</em>, <em>filename</em>, <em>language</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imgtl.html#text_exist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imgtl.text_exist" title="Permalink to this definition">¶</a></dt>
+<dd><p>This test uses ocr_path to check if text exists in this image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> (<em>string</em>) – the path of the input file obtained from the user</li>
+<li><strong>filename</strong> (<em>string</em>) – name of the input image file</li>
+<li><strong>language</strong> (<em>string</em>) – the choice of input file language</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="imgtl.textg1">
+<code class="descclassname">imgtl.</code><code class="descname">textg1</code><span class="sig-paren">(</span><em>path</em>, <em>filename</em>, <em>language</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imgtl.html#textg1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imgtl.textg1" title="Permalink to this definition">¶</a></dt>
+<dd><p>This test checks if the text read from ocr has more than one character</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> (<em>string</em>) – the path of the input file obtained from the user</li>
+<li><strong>filename</strong> (<em>string</em>) – name of the input image file</li>
+<li><strong>language</strong> (<em>string</em>) – the choice of input file language</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="imgtl.translate_text">
+<code class="descclassname">imgtl.</code><code class="descname">translate_text</code><span class="sig-paren">(</span><em>image_path</em>, <em>imagename</em>, <em>language</em>, <em>fontChoice</em>, <em>fontColorChoice</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imgtl.html#translate_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imgtl.translate_text" title="Permalink to this definition">¶</a></dt>
 <dd><p>Takes lines of text extracted from txt file and translates them,
 outputs translated version into a txt file called “translated.txt”
 and an image file with the translated text called Capture.JPG.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>image_path</strong> (<em>string</em>) – the path of the input file obtained from the user</p></li>
-<li><p><strong>imagename</strong> (<em>string</em>) – name of the input image file</p></li>
-<li><p><strong>language</strong> (<em>string</em>) – the choice of input file language</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>image_path</strong> (<em>string</em>) – the path of the input file obtained from the user</li>
+<li><strong>imagename</strong> (<em>string</em>) – name of the input image file</li>
+<li><strong>language</strong> (<em>string</em>) – the choice of input file language</li>
+<li><strong>fontChoice</strong> (<em>string</em>) – choice of the output file font</li>
+<li><strong>fontColorChoice</strong> (<em>string</em>) – choice of the output file font color</li>
 </ul>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="imgtl.writefile">
-<span class="sig-prename descclassname"><span class="pre">imgtl.</span></span><span class="sig-name descname"><span class="pre">writefile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strstr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imgtl.writefile" title="Permalink to this definition">¶</a></dt>
+<dl class="function">
+<dt id="imgtl.writefile">
+<code class="descclassname">imgtl.</code><code class="descname">writefile</code><span class="sig-paren">(</span><em>image_path</em>, <em>strstr</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/imgtl.html#writefile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#imgtl.writefile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes text extracted from image into a txt file named “script.txt” 
 which is saved in the same path as the input image file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>image_path</strong> (<em>string</em>) – the path of the input file obtained from the user</p></li>
-<li><p><strong>strstr</strong> (<em>string</em>) – string of words that have been generated by OCR</p></li>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>image_path</strong> (<em>string</em>) – the path of the input file obtained from the user</li>
+<li><strong>strstr</strong> (<em>string</em>) – string of words that have been generated by OCR</li>
 </ul>
-</dd>
-</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-</section>
+</div>
 
 
           </div>
-          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">Project3</a></h1>
+<h1 class="logo"><a href="index.html">Project 4: PITT</a></h1>
 
 
 
@@ -99,7 +223,7 @@ which is saved in the same path as the input image file.</p>
 
 
 <h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Group1Project3</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">imgtl module</a></li>
@@ -118,23 +242,17 @@ which is saved in the same path as the input image file.</p>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -143,8 +261,8 @@ which is saved in the same path as the input image file.</p>
       &copy;2021, Alexander Archer, George Blue, Alice Chen, Edina Harsay, Mac Hayes.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
       
       |
       <a href="_sources/imgtl.rst.txt"
