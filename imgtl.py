@@ -131,11 +131,10 @@ def translate_text(image_path, imagename, language, fontChoice, fontColorChoice)
             n.writelines(translator.translate(line) + "\n")
             draw = ImageDraw.Draw(newimg)
             # font size 18 should be scaled for image size
-            font = ImageFont.truetype(customfont, 18)
+            font = ImageFont.truetype(customfont, round(width/19.3333333)) # font size 18 should be scaled for image size 
             # In the next line, first 2 numbers are pixels to right and down of upper corner
-            draw.text((5, movedown), translator.translate(
-                line), fill=customfill, font=font)
-            movedown += 25
+            draw.text((5, movedown), translator.translate(line), fill=customfill, font=font) 
+            movedown += round(height/9.52)
         newimg.save("Capture.JPG")
         newimg.show()  # I don't think this works
 
