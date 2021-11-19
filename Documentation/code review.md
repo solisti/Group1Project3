@@ -64,7 +64,7 @@
 
 **Assigned to:** Alice
 
-**How the fault was fixed/Status: **Will not fix. We will update requirements to match the product instead.
+**How the fault was fixed/Status:** Will not fix. We will update requirements to match the product instead.
 
 ---
 
