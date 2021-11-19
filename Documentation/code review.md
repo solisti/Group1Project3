@@ -30,7 +30,7 @@
 
 **Fault:** Program does not contain any error checking
 
-**Description:** There was no input error-checking present on the prototype version, so the program immediately crashed when it encountered input of an unexpected type or format.
+**Description:** There was no input error-checking present on the prototype version, so the program would immediate crash if it encountered input of an unexpected type or format.
 
 **Assigned to:** Edina, George
 
@@ -58,7 +58,7 @@
 
 ---
 
-**Fault:** Requirements artifact does not 100% than actual product
+**Fault:** Requirements artifact does not 100% match actual product
 
 **Description:** The requirements we generated were a lot more ambitious than what we could do given the time constraints, and we did not take into account how latin languages differed from non-latin scripts in terms of sentence structure, which made text placement hard to work with for latin language output.
 
