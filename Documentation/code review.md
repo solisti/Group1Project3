@@ -74,7 +74,7 @@
 
 **Assigned to:** Alice
 
-**How the fault was fixed/Status:** Will not fix. We will update our UML specification so that it no loner includes a standalone UI portion.
+**How the fault was fixed/Status:** Will not fix. We will update our UML specification so that it no loner includes a standalone UI portion. We will implement font choice and color choices as user features instead. 
 
 ---
 
